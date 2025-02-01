@@ -7,11 +7,11 @@ from BERT_model import BERT_Arch
 device = torch.device("cpu")
 
 app = Flask(__name__ ,static_folder='static')
-# Load ML model (TF-IDF + Linear SVC)
+# Load ML model
 loaded_tfidf = joblib.load('tfidf_vectorizer.joblib')
 loaded_ml_model = joblib.load('linear_svc_model.joblib')
 
-# Function to preprocess text for DL model
+# Load DL model
 def preprocess_text(text, max_length=128):
     tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
     encoding = tokenizer(text, padding='max_length', truncation=True, max_length=max_length, return_tensors="pt")
@@ -27,7 +27,6 @@ def predict_text(text, model):
         preds = torch.argmax(logits, dim=1).cpu().numpy()
         return preds[0]
 
-# Function for ML model prediction
 def predict_ml(text):
     text_tfidf = loaded_tfidf.transform([text])
     prediction = loaded_ml_model.predict(text_tfidf)
@@ -36,7 +35,6 @@ def predict_ml(text):
     else:
         return "Negative"
 
-# Function for DL model prediction
 def predict_dl(text):
     model_path = 'saved_weights.pt'
     bert = AutoModel.from_pretrained('bert-base-uncased')
@@ -46,7 +44,6 @@ def predict_dl(text):
     prediction = predict_text(text, model)
     return "positive" if prediction == 1 else "negative"
 
-# API Route for prediction
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
@@ -69,7 +66,7 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Web UI to select models
+# Web UI
 @app.route('/')
 def home():
     return render_template("index.html")

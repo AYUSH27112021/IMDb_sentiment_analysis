@@ -7,7 +7,7 @@ DB_FILE = r"Database_File\imdb_reviews.db"
 CSV_FILE = r"IMDB Dataset.csv"
 BATCH_SIZE = 1000
 
-# Create the imdb_reviews table in the SQLite database.
+# Create
 def create_table(DB_FILE):
     directory = os.path.dirname(DB_FILE)     
     if directory and not os.path.exists(directory):
@@ -29,14 +29,12 @@ def create_table(DB_FILE):
     connection.close()
     print("Table created successfully.")
 
-# Insert data from CSV into the imdb_reviews table.
+# Insert data
 def insert_data_from_csv(IMDB_df):
     connection = sqlite3.connect(DB_FILE)
     
-    # Read the CSV in chunks
     for i in range(0, len(IMDB_df), BATCH_SIZE):
         chunk = IMDB_df.iloc[i:i + BATCH_SIZE]
-        # Insert chunk into the database
         chunk.to_sql('imdb_reviews', connection, if_exists='append', index=False)
     
     connection.commit()

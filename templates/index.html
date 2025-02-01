@@ -7,31 +7,31 @@
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <!-- Title Section -->
+
   <div class="title-section">
     <h1>Sentiment Analysis</h1>
   </div>
   
-  <!-- Main Content -->
+
   <div class="main-content">
-    <!-- Left Side: Review Input -->
+    <!-- Left Side-->
     <div class="left-side">
       <div class="textarea-container">
-        <!-- Header area with Random Button -->
+        <!-- Header -->
         <div class="textarea-header">
           <button class="load-button" onclick="loadRandomReview()">
             <img src="/static/random_icon.png" alt="Load Random Review">
             Generate a random review
           </button>
         </div>
-        <!-- Textarea (native scrolling only) -->
+        <!-- Textarea-->
         <div class="textarea-body">
           <textarea id="review_text" placeholder="Enter your review..."></textarea>
         </div>
       </div>
     </div>
     
-    <!-- Right Side: Prediction Panels -->
+    <!-- Right Side -->
     <div class="right-side">
       <div class="prediction-section">
         <button class="prediction-btn" onclick="predict('ml')">
@@ -49,7 +49,7 @@
     </div>
   </div>
   
-  <!-- JavaScript -->
+
   <script>
     function predict(modelType) {
       const text = document.getElementById("review_text").value;
@@ -60,7 +60,6 @@
       const resultElement = document.getElementById(`${modelType}-result`);
       resultElement.innerText = "Predicting...";
       resultElement.className = "result-text";
-      // Simulate a 3-second delay before making the prediction request
       setTimeout(() => {
         fetch("/predict", {
           method: "POST",
