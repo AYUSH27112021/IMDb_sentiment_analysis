@@ -63,3 +63,6 @@ A simple Flask app (app.py) with an endpoint:
 All trained models (.pt, .joblib) are available in the Release Section.
 
 ### Sample video
+
+https://github.com/user-attachments/assets/5778c1e4-64f6-4e10-873d-cb2cc6413a4d
+
