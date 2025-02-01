@@ -1,0 +1,192 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  
+  body {
+    background: url('/static/background.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+  }
+  
+  /* Title Section with transparent grey background */
+  .title-section {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.8); /* Grey with 80% opacity */
+  }
+  
+  .title-section h1 {
+    font-size: 36px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  
+  /* Main Content Layout */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  /* Left Side: Review Input */
+  .left-side {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+  }
+  
+  .textarea-container {
+    width: 100%;
+    max-width: 500px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    background: rgba(211, 211, 211, 0.8); /* Gray with increased opacity */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Header area for the Random Button (10% of container) */
+  .textarea-header {
+    height: 10%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+  
+  .load-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4a90e2; /* Blue button color */
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+  }
+  
+  .load-button:hover {
+    background-color: #357ABD; /* Darker blue on hover */
+  }
+  
+  .load-button img {
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  /* Text area container (native scrolling only) */
+  .textarea-body {
+    flex: 1;
+    padding: 15px;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    resize: none;
+    background-color: transparent;
+    color: #333;
+    outline: none;
+  }
+  
+  /* Right Side: Prediction Panels */
+  .right-side {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+  }
+  
+  .prediction-section {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Prediction Buttons with new color palette */
+  button.prediction-btn {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 20px 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  button.prediction-btn:hover {
+    background-color: #357ABD;
+  }
+  
+  .result-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .positive {
+    color: #28a745;
+  }
+  
+  .negative {
+    color: #dc3545;
+  }
+  
+  /* Responsive adjustments for small screens */
+  @media (max-width: 480px) {
+    .load-button {
+      font-size: 14px;
+      padding: 8px;
+    }
+    
+    .title-section h1 {
+      font-size: 28px;
+    }
+    
+    button.prediction-btn {
+      font-size: 18px;
+      padding: 16px 32px;
+    }
+  }
+  
